@@ -1,0 +1,58 @@
+<div class="container" style="text-align: left;"> 
+    <h3>Register</h3>
+    <!--<form [formGroup]="miform" (ngSubmit)="onSubmit()">-->
+    <form [formGroup]="RegisterForm">
+
+        <!-- Nombre -->
+        <p> Username: <br>
+            <input type="text" formControlName="name">
+
+            <span  *ngIf="this.RegisterForm.get('name')?.errors?.['required'] && 
+                    this.RegisterForm.get('name')?.touched">
+                El nombre no puede estar vacío
+            </span>
+            <span   *ngIf="this.RegisterForm.get('name')?.errors?.['minlength']&& 
+                    this.RegisterForm.get('name')?.touched">
+                El nombre no puede tener menos de 2 letras
+            </span>
+
+            <span   *ngIf="this.RegisterForm.get('name')?.errors?.['pattern'] && 
+                    this.RegisterForm.get('name')?.touched">
+                Solo puede contener letras, minimo 6
+            </span>
+        
+        </p>
+
+        <p> Password: <br>
+            <input type="password" formControlName="password">
+
+            <span  *ngIf="this.RegisterForm.get('password')?.errors?.['required'] && 
+                    this.RegisterForm.get('password')?.touched">
+                La contrasenya no puede estar vacía
+            </span>
+
+            <span   *ngIf="this.RegisterForm.get('password')?.errors?.['pattern'] && 
+                    this.RegisterForm.get('password')?.touched">
+                La contrasenya no tiene el formato correcto
+            </span>
+        </p>
+
+        <p> Check password: <br>
+            <input type="password" formControlName="password">
+
+            <span  *ngIf="this.RegisterForm.get('password')?.errors?.['required'] && 
+                    this.RegisterForm.get('password')?.touched">
+                La contrasenya no puede estar vacía
+            </span>
+
+            <span   *ngIf="this.RegisterForm.get('password')?.errors?.['pattern'] && 
+                    this.RegisterForm.get('password')?.touched">
+                La contrasenya no tiene el formato correcto
+            </span>
+        </p>
+
+
+        <button type="submit" [disabled]="RegisterForm.invalid">Register</button>
+    </form>
+</div>
+<div>   
