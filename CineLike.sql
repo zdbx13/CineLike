@@ -1,5 +1,7 @@
 -- Create user admin
-CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';
+--CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';
+
+DROP database CineLike;
 
 -- Create DataBase
 CREATE DATABASE CineLike
@@ -36,12 +38,7 @@ CREATE TABLE films (
 ) ENGINE InnoDb;
 
 -- Inserts to films table
-INSERT INTO films VALUES (0, 
-                         "La niña de la comunión",
-                         "Una terrorífica película basada en una leyenda urbana. Hablamos con el director Víctor García."
-                         "Español",
-                         "2.0",
-                         2022);
+INSERT INTO films VALUES (0,"La niña de la comunión","Una terrorífica película basada en una leyenda urbana. Hablamos con el director Víctor García.","Español","2.0", 2022);
 
 insert into films values (0, 
                          "The Shawshank Redemption", 
@@ -72,7 +69,7 @@ insert into films values (0,
                          1994);
 
 insert into films values (0, 
-                         "The Lord of the Rings: The Fellowship of the Ring", 
+                         "The Lord of the Rings", 
                          "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.", 
                          "English", 
                          "2.58", 

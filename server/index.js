@@ -13,12 +13,12 @@ const mysql = require('mysql');
 // i amb permissos restringits
 var connection = mysql.createConnection({
     host: 'localhost',
-    database: 'storedb',
+    database: 'CineLike',
     user: 'root',
     password: '1234'
 });
 //fem servir la BBDD que tenim
-app.get('/api/login', function (req, res) {
+app.get('/db', function (req, res) {
     console.log(req.body);
     console.log("estem a login");
     //provem de connectar-nos i capturar possibles errors
