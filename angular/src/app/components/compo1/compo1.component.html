@@ -1,44 +1,46 @@
-<div class="container" style="text-align: left;"> 
+<div class="container"> 
     <h3>Login</h3>
     <!--<form [formGroup]="miform" (ngSubmit)="onSubmit()">-->
-    <form [formGroup]="LoginForm">
+	<div class="w-full max-w-xs">
+		<form [formGroup]="LoginForm" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
 
-        <!-- Nombre -->
-        <p> Nombre de usuario: <br>
-            <input type="text" formControlName="name">
+			<!-- Nombre -->
+			<p> Nombre de usuario: <br>
+				<input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" formControlName="name">
+				<span  *ngIf="this.LoginForm.get('name')?.errors?.['required'] && 
+						this.LoginForm.get('name')?.touched">
+					El nombre no puede estar vacío
+				</span>
+				<span   *ngIf="this.LoginForm.get('name')?.errors?.['minlength']&& 
+						this.LoginForm.get('name')?.touched">
+					El nombre no puede tener menos de 2 letras
+				</span>
 
-            <span  *ngIf="this.LoginForm.get('name')?.errors?.['required'] && 
-                    this.LoginForm.get('name')?.touched">
-                El nombre no puede estar vacío
-            </span>
-            <span   *ngIf="this.LoginForm.get('name')?.errors?.['minlength']&& 
-                    this.LoginForm.get('name')?.touched">
-                El nombre no puede tener menos de 2 letras
-            </span>
+				<span   *ngIf="this.LoginForm.get('name')?.errors?.['pattern'] && 
+						this.LoginForm.get('name')?.touched">
+					Solo puede contener letras, minimo 6
+				</span>
+			
+			</p>
 
-            <span   *ngIf="this.LoginForm.get('name')?.errors?.['pattern'] && 
-                    this.LoginForm.get('name')?.touched">
-                Solo puede contener letras, minimo 6
-            </span>
-        
-        </p>
+			<p> Contrasenya: <br>
+				<input class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" formControlName="password">
 
-        <p> Contrasenya: <br>
-            <input type="password" formControlName="password">
+				<span  *ngIf="this.LoginForm.get('password')?.errors?.['required'] && 
+						this.LoginForm.get('password')?.touched">
+					La contrasenya no puede estar vacía
+				</span>
 
-            <span  *ngIf="this.LoginForm.get('password')?.errors?.['required'] && 
-                    this.LoginForm.get('password')?.touched">
-                La contrasenya no puede estar vacía
-            </span>
+				<span   *ngIf="this.LoginForm.get('password')?.errors?.['pattern'] && 
+						this.LoginForm.get('password')?.touched">
+					La contrasenya no tiene el formato correcto
+				</span>
+			</p>
 
-            <span   *ngIf="this.LoginForm.get('password')?.errors?.['pattern'] && 
-                    this.LoginForm.get('password')?.touched">
-                La contrasenya no tiene el formato correcto
-            </span>
-        </p>
-
-
-        <button type="submit" [disabled]="LoginForm.invalid">Login</button>
-    </form>
+			<button type="submit" [disabled]="LoginForm.invalid" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+				Login
+			</button>
+		</form>
+	</div>
 </div>
 <div>   
