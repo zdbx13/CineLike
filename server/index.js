@@ -14,13 +14,8 @@ const mysql = require('mysql');
 var connection = mysql.createConnection({
     host: 'localhost',
     database: 'CineLike',
-<<<<<<< HEAD
-    user: 'root',
-    password: '1234'
-=======
     user: 'admin',
     password: 'admin'
->>>>>>> 596435c (Service folder)
 });
 //fem servir la BBDD que tenim
 app.get('/db', function (req, res) {
